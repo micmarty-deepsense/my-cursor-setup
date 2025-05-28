@@ -1,0 +1,837 @@
+{
+    /*
+     * ========================================
+     * EDITOR APPEARANCE & BEHAVIOR
+     * ========================================
+     */
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "Cascadia Code",
+    "editor.fontSize": 12,
+    "editor.fontLigatures": true,
+    "editor.renderWhitespace": "all",
+    "editor.smoothScrolling": true,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorSurroundingLines": 10,
+    "editor.minimap.enabled": false,
+    "editor.stickyScroll.enabled": true,
+    /*
+     * ========================================
+     * WORKBENCH & UI
+     * =======================================
+     */
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.sideBar.location": "right",
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "workbench.preferredDarkColorTheme": "GitHub Dark",
+    "window.autoDetectColorScheme": true,
+    "window.customTitleBarVisibility": "windowed",
+    // These two fix symbol picker
+    "workbench.quickOpen.closeOnFocusLost": false,
+    "workbench.commandPalette.preserveInput": false,
+    /*
+     * ========================================
+     * FILES & WORKSPACE
+     * ========================================
+     */
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "onFocusChange",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.venv": true
+    },
+    "files.associations": {
+        "NOTES.txt": "helm",
+        ".env*": "dotenv"
+    },
+    "explorer.confirmDragAndDrop": false,
+    /*
+     * ========================================
+     * SEARCH CONFIGURATION
+     * ========================================
+     */
+    "search.exclude": {
+        "**/.venv": true,
+        "**/*.feather": true,
+        "**/*.pkl": true
+    },
+    /*
+     * ========================================
+     * VIM EXTENSION CONFIGURATION
+     * ========================================
+     */
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 400,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    /*
+     * ========================================
+     * VIM KEY BINDINGS - INSERT MODE
+     * ========================================
+     */
+    "vim.insertModeKeyBindings": [
+        {
+            // Quick escape from insert mode with jk
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    /*
+     * ========================================
+     * VIM KEY BINDINGS - VISUAL MODE
+     * ========================================
+     */
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            // Open file on remote (GitHub) in visual mode
+            "before": [
+                "o"
+            ],
+            "commands": [
+                "gitlens.openFileOnRemote"
+            ]
+        },
+        // {
+        //     "before": [
+        //         "<Leader>",
+        //         "g"
+        //     ],
+        //     "commands": [
+        //         // "workbench.panel.chat.view.copilot.focus"
+        //         "age",
+        //         "workbench."
+        //     ]
+        // },
+        {
+            // Paste and exit visual mode
+            "before": [
+                "p"
+            ],
+            "commands": [
+                "editor.action.clipboardPasteAction"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            // Comment line and escape in visual mode
+            "before": [
+                "<leader>",
+                "r"
+            ],
+            "commands": [
+                "editor.action.commentLine",
+                "extension.vim_escape"
+            ]
+        },
+        {
+            // Move selected lines down
+            "before": [
+                "J"
+            ],
+            "commands": [
+                "editor.action.moveLinesDownAction"
+            ]
+        },
+        {
+            // Move selected lines up
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.moveLinesUpAction"
+            ]
+        }
+    ],
+    /*
+     * ========================================
+     * VIM KEY BINDINGS - NORMAL MODE
+     * ========================================
+     */
+    "vim.normalModeKeyBindings": [
+        {
+            // Navigate to previous editor tab
+            "before": [
+                "H"
+            ],
+            "commands": [
+                "workbench.action.previousEditorInGroup"
+            ]
+        },
+        {
+            // Navigate to next editor tab
+            "before": [
+                "L"
+            ],
+            "commands": [
+                "workbench.action.nextEditorInGroup"
+            ]
+        }
+    ],
+    /*
+     * ========================================
+     * VIM KEY BINDINGS - NORMAL MODE (NON-RECURSIVE)
+     * ========================================
+     */
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            // Find all references to symbol under cursor
+            "before": [
+                "f",
+                "a"
+            ],
+            "command": "references-view.findReferences"
+        },
+        {
+            // Enter visual line mode with leader+v
+            "before": [
+                "<leader>",
+                "v"
+            ],
+            "after": [
+                "V"
+            ]
+        },
+        {
+            // Quick switch between recent files
+            "before": [
+                "<leader>",
+                "<leader>"
+            ],
+            "commands": [
+                "workbench.action.openPreviousEditorFromHistory",
+                "workbench.action.acceptSelectedQuickOpenItem"
+            ]
+        },
+        {
+            // Rename symbol under cursor
+            "before": [
+                "<leader>",
+                "q"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            // Quick open file picker
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            // Toggle comment on current line
+            "before": [
+                "<leader>",
+                "r"
+            ],
+            "commands": [
+                "editor.action.commentLine"
+            ]
+        },
+        {
+            // Jump to end of line (same as $)
+            "before": [
+                "<leader>",
+                "l"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            // Jump to first non-blank character (same as ^)
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "after": [
+                "_"
+            ]
+        },
+        {
+            // Close current editor tab
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            // Close all other editor tabs
+            "before": [
+                "<leader>",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.closeOtherEditors"
+            ]
+        },
+        {
+            // Go to symbol in current file
+            "before": [
+                "<leader>",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.gotoSymbol"
+            ]
+        },
+        {
+            // Show hover information for symbol under cursor
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            // List all bookmarks
+            "before": [
+                "<leader>",
+                "b"
+            ],
+            "commands": [
+                // Toggle sidebar visibility
+                // "workbench.action.toggleSidebarVisibility",
+                "numberedBookmarks.listFromAllFiles"
+            ]
+        },
+        {
+            // Toggle bookmark 1 (alternative binding)
+            "before": [
+                "m",
+                "a"
+            ],
+            "commands": [
+                "numberedBookmarks.toggleBookmark1"
+            ]
+        },
+        {
+            // Toggle bookmark 1
+            "before": [
+                "m",
+                "1"
+            ],
+            "commands": [
+                "numberedBookmarks.toggleBookmark1"
+            ]
+        },
+        {
+            // Toggle bookmark 2
+            "before": [
+                "m",
+                "2"
+            ],
+            "commands": [
+                "numberedBookmarks.toggleBookmark2"
+            ]
+        },
+        {
+            // Toggle bookmark 3
+            "before": [
+                "m",
+                "3"
+            ],
+            "commands": [
+                "numberedBookmarks.toggleBookmark3"
+            ]
+        },
+        {
+            // List all bookmarks from all files
+            "before": [
+                ",",
+                "l"
+            ],
+            "commands": [
+                "numberedBookmarks.listFromAllFiles"
+            ]
+        },
+        {
+            // Jump to bookmark 1
+            "before": [
+                ",",
+                "1"
+            ],
+            "commands": [
+                "numberedBookmarks.jumpToBookmark1"
+            ]
+        },
+        {
+            // Jump to bookmark 2
+            "before": [
+                ",",
+                "2"
+            ],
+            "commands": [
+                "numberedBookmarks.jumpToBookmark2"
+            ]
+        },
+        {
+            // Jump to bookmark 3
+            "before": [
+                ",",
+                "3"
+            ],
+            "commands": [
+                "numberedBookmarks.jumpToBookmark3"
+            ]
+        },
+        {
+            // Jump to bookmark 4
+            "before": [
+                ",",
+                "4"
+            ],
+            "commands": [
+                "numberedBookmarks.jumpToBookmark4"
+            ]
+        },
+        {
+            // Jump to bookmark 5
+            "before": [
+                ",",
+                "5"
+            ],
+            "commands": [
+                "numberedBookmarks.jumpToBookmark5"
+            ]
+        },
+        {
+            // Jump to bookmark 6
+            "before": [
+                ",",
+                "6"
+            ],
+            "commands": [
+                "numberedBookmarks.jumpToBookmark6"
+            ]
+        },
+        {
+            // Jump to bookmark 7
+            "before": [
+                ",",
+                "7"
+            ],
+            "commands": [
+                "numberedBookmarks.jumpToBookmark7"
+            ]
+        },
+        {
+            // Jump to bookmark 8
+            "before": [
+                ",",
+                "8"
+            ],
+            "commands": [
+                "numberedBookmarks.jumpToBookmark8"
+            ]
+        },
+        {
+            // Jump to bookmark 9
+            "before": [
+                ",",
+                "9"
+            ],
+            "commands": [
+                "numberedBookmarks.jumpToBookmark9"
+            ]
+        },
+        {
+            // Reveal current file in file explorer
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "revealInExplorer"
+            ]
+        },
+        {
+            // Go to next word highlight match
+            "before": [
+                "N"
+            ],
+            "commands": [
+                "editor.action.wordHighlight.next"
+            ]
+        },
+        {
+            // Jump down 5 lines and center cursor
+            "before": [
+                "J"
+            ],
+            "after": [
+                "5",
+                "j",
+                "z",
+                "z"
+            ]
+        },
+        {
+            // Jump up 5 lines and center cursor
+            "before": [
+                "K"
+            ],
+            "after": [
+                "5",
+                "k",
+                "z",
+                "z"
+            ]
+        },
+        {
+            // Save current file
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            // Open command palette
+            "before": [
+                "<Leader>",
+                "p"
+            ],
+            "commands": [
+                "workbench.action.showCommands"
+            ]
+        },
+        // {
+        //     "before": [
+        //         "<Leader>",
+        //         "g"
+        //     ],
+        //     "commands": [
+        //         "workbench.panel.chat.view.copilot.focus"
+        //     ]
+        // },
+        {
+            // Go to symbol anywhere in workspace
+            "before": [
+                "<Leader>",
+                "t"
+            ],
+            "commands": [
+                "workbench.action.showAllSymbols"
+            ]
+        },
+        {
+            // Focus first editor group
+            "before": [
+                "<Leader>",
+                "1"
+            ],
+            "commands": [
+                "workbench.action.focusFirstEditorGroup"
+            ]
+        },
+        {
+            // Focus second editor group
+            "before": [
+                "<Leader>",
+                "2"
+            ],
+            "commands": [
+                "workbench.action.focusSecondEditorGroup"
+            ]
+        },
+        {
+            // Focus third editor group
+            "before": [
+                "<C-3>"
+            ],
+            "commands": [
+                "workbench.action.focusThirdEditorGroup"
+            ]
+        },
+        {
+            // Clear search highlighting
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            // Show hover information (duplicate of earlier binding)
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            // Start inline chat
+            "before": [
+                "<leader>",
+                "i"
+            ],
+            "commands": [
+                "inlineChat.start"
+            ]
+        },
+        {
+            // Focus on GitHub Actions for current branch
+            "before": [
+                "<leader>",
+                "g",
+                "a"
+            ],
+            "commands": [
+                "github-actions.explorer.current-branch.refresh",
+                "github-actions.current-branch.focus"
+            ]
+        },
+        {
+            // Focus on GitHub Pull Requests view
+            "before": [
+                "<leader>",
+                "g",
+                "p",
+                "r"
+            ],
+            "commands": [
+                "pr:github.focus"
+            ]
+        },
+        {
+            // Copy path of active file
+            "before": [
+                "<leader>",
+                "c",
+                "p",
+            ],
+            "commands": [
+                "workbench.action.files.copyPathOfActiveFile"
+            ]
+        },
+        {
+            // Rename file with leader+r+f
+            "before": [
+                "<leader>",
+                "r",
+                "f"
+            ],
+            "commands": [
+                "fileutils.renameFile"
+            ]
+        },
+        // Code Folding
+        {
+            // Toggle code folding
+            "before": [
+                "<leader>",
+                "z"
+            ],
+            "commands": [
+                "vikyd.FoldLevel.level2"
+            ]
+        },
+        // {
+        //     // Fold all code blocks
+        //     "before": [
+        //         "<leader>",
+        //         "z"
+        //     ],
+        //     "commands": [
+        //         "editor.foldAll"
+        //     ]
+        // },
+        {
+            // Unfold all code blocks
+            "before": [
+                "<leader>",
+                "Z"
+            ],
+            "commands": [
+                "editor.unfoldAll"
+            ]
+        },
+        // Git Integration
+        {
+            // Toggle git blame for current file
+            "before": [
+                "<leader>",
+                "g",
+                "b"
+            ],
+            "commands": [
+                "gitlens.toggleFileBlame"
+            ]
+        }
+    ],
+    /*
+     * ========================================
+     * VIM DISABLED KEYS
+     * ========================================
+     */
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-b>": false,
+        "<C-f>": false,
+        "<C-i>": false,
+        "<C-w>": false,
+        "<S-j>": false,
+        "<S-k>": false,
+        "<C-d>": false,
+        "<C-c>": false,
+        "<C-x>": false,
+        "<C-v>": false,
+        "<C-z>": false,
+        "<C-y>": false
+    },
+    /*
+     * ========================================
+     * LANGUAGE-SPECIFIC SETTINGS
+     * ========================================
+     */
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "explicit"
+        }
+    },
+    // GAME CHANGER - enables go to symbol, inteligent refactoring
+    "python.languageServer": "Pylance",
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    /*
+     * ========================================
+     * TERMINAL CONFIGURATION
+     * ========================================
+     */
+    "terminal.integrated.allowChords": false,
+    "terminal.integrated.fontFamily": "Cascadia Code",
+    /*
+     * ========================================
+     * NOTEBOOK SETTINGS
+     * ========================================
+     */
+    "notebook.stickyScroll.enabled": true,
+    "notebook.formatOnSave.enabled": true,
+    "notebook.output.textLineLimit": 500,
+    "notebook.output.fontFamily": "Cascadia Code",
+    "interactiveWindow.executeWithShiftEnter": true,
+    /*
+     * ========================================
+     * TESTING CONFIGURATION
+     * ========================================
+     */
+    "python.testing.pytestEnabled": true,
+    /*
+     * ========================================
+     * GIT & VERSION CONTROL
+     * ========================================
+     */
+    "git.autofetch": true,
+    "git.openRepositoryInParentFolders": "never",
+    /*
+     * ========================================
+     * GITHUB & PULL REQUESTS
+     * ========================================
+     */
+    "githubPullRequests.pullBranch": "never",
+    "githubPullRequests.experimental.chat": true,
+    /*
+     * ========================================
+     * REMOTE DEVELOPMENT
+     * ========================================
+     */
+    "remote.autoForwardPortsSource": "hybrid",
+    /*
+     * ========================================
+     * BOOKMARKS EXTENSION
+     * ========================================
+     */
+    "numberedBookmarks.navigateThroughAllFiles": "replace",
+    "numberedBookmarks.saveBookmarksInProject": true,
+    "numberedBookmarks.gutterIconFillColor": "#157EFB",
+    "numberedBookmarks.gutterIconNumberColor": "#FFFFFF",
+    "numberedBookmarks.revealPosition": "center",
+    /*
+     * ========================================
+     * OTHER EXTENSIONS
+     * ========================================
+     */
+    "fzf-quick-open.findDirectoriesCmd": "fd --type d",
+    "ruff.lint.preview": false,
+    "ruff.nativeServer": true,
+    "makefile.configureOnOpen": false,
+    /*
+     * ========================================
+     * COLOR CUSTOMIZATIONS
+     * ========================================
+     */
+    "workbench.colorCustomizations": {
+        "numberedBookmarks.lineBackground": "#157EFB22",
+        "numberedBookmarks.lineBorder": "#157EFB",
+        "numberedBookmarks.overviewRuler": "#157EFB88"
+    },
+    "peacock.favoriteColors": [
+        {
+            "name": "Mandalorian Blue",
+            "value": "#1857a4"
+        },
+        {
+            "name": "Node Green",
+            "value": "#215732"
+        },
+        {
+            "name": "Something Different",
+            "value": "#832561"
+        },
+        {
+            "name": "Vue Green",
+            "value": "#42b883"
+        },
+        {
+            "name": "Mike blue",
+            "value": "#1f6371"
+        },
+        {
+            "name": "Mike's brown",
+            "value": "#b07650"
+        }
+    ],
+    "screencastMode.mouseIndicatorSize": 30,
+    "screencastMode.fontSize": 60,
+    "screencastMode.keyboardOverlayTimeout": 1500,
+    "screencastMode.verticalOffset": 10,
+    "window.zoomPerWindow": false,
+    "window.zoomLevel": 4
+}
